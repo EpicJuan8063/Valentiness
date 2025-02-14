@@ -1,0 +1,87 @@
+<html>
+    <body>
+        <div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h1>Will you be my valentine?</h1>
+            <img id="valentineImage" src="https://mail.google.com/mail/u/0?ui=2&ik=cbc47fa1ee&attid=0.0&permmsgid=msg-f:1824009050811721084&th=19502e9154bae57c&view=att&zw&disp=safe" alt="Valentine's Day Image" style="max-width: 300px; height: auto;">
+            <br/>
+            <br/>
+            <br/>
+            <button id="yesButton">Yes</button>
+            <button id="no">No</button>
+        </div>
+
+        <style>
+            body {
+                background-color:#fdb2e7;
+            }
+            div {
+                text-align: center;
+                vertical-align: middle;
+            }
+            h1 {
+                color: #ff477e;
+            }
+            #yesButton {
+                background-color: #06d6a0;
+                transition: transform 0.3s;
+                margin-right: 10px;
+                width: 120px;
+                font-size: 30px;
+                height: 40px;
+                color: #fff;
+                margin-left: -140px;
+            }
+            #no {
+                position: absolute;
+                background-color: #ef476f;
+                transition: transform 0.3s;
+                margin-left: 10px;
+                width: 120px;
+                /* font-size: 30px; */
+                height: 40px;
+                color: #fff;
+            }
+        </style>
+        <script>
+            document.getElementById("yesButton").addEventListener("click", showAlert);
+
+            function showAlert() {
+                alert("I love you baby! See you tmr <3");
+            }
+
+            var yesButton = document.getElementById("yesButton");
+            var no = document.getElementById("no");
+            var valentineImage = document.getElementById("valentineImage");
+
+            var noTexts = ["Are you sure?", "Please give me a chance my lele", "lele please", "what the flip! :(", "HEY!", "I'm gonna cry"];
+            var imageSources = ["https://mail.google.com/mail/u/0?ui=2&ik=cbc47fa1ee&attid=0.1&permmsgid=msg-f:1824009050811721084&th=19502e9154bae57c&view=att&zw&disp=safe", "https://mail.google.com/mail/u/0?ui=2&ik=cbc47fa1ee&attid=0.2&permmsgid=msg-f:1824009050811721084&th=19502e9154bae57c&view=att&zw&disp=safe", "https://mail.google.com/mail/u/0?ui=2&ik=cbc47fa1ee&attid=0.1&permmsgid=msg-f:1824009050811721084&th=19502e9154bae57c&view=att&zw&disp=safe", "https://mail.google.com/mail/u/0?ui=2&ik=cbc47fa1ee&attid=0.4&permmsgid=msg-f:1824009050811721084&th=19502e9154bae57c&view=att&zw&disp=safe"];
+
+            no.addEventListener("click", change);
+
+            function change() {
+                var randomIndex = Math.floor(Math.random() * noTexts.length);
+                var randomText = noTexts[randomIndex];
+                no.innerText = randomText;
+
+                var i = Math.floor(Math.random() * 1000) + 1;
+                var j = Math.floor(Math.random() * 700) + 1;
+                no.style.left = i + "px";
+                no.style.top = j + "px";
+
+                var currentWidth = yesButton.offsetWidth;
+                var currentHeight = yesButton.offsetHeight
+                yesButton.style.width = currentWidth + 30 + "px";
+                yesButton.style.height = currentHeight + 10 + "px";
+
+                var randomImageIndex = Math.floor(Math.random() * imageSources.length);
+                valentineImage.src = imageSources[randomImageIndex];
+            }
+        </script>
+    </body>
+</html>
